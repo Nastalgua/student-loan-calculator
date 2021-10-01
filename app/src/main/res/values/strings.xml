@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Student Loan Calculator</string>
+    <string name="hint_loan_amount">Loan Amount</string>
+    <string name="hint_interest_rate">Interest Rate</string>
+    <string name="hint_loan_term">Loan Terms (in years)</string>
+    <string name="hint_loan_fees">Loan Fees</string>
+    <string name="hint_minimum_payment">Minimum Payment</string>
+
+    <string name="btn_calculate">Calculate</string>
+</resources>
