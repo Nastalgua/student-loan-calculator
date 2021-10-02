@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import android.os.Bundle;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +31,21 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         // get all the values and calculate
-        Results res = Loan.calculate();
+        EditText loanAmount, interestRate, loanTerm, loanFees;
+        loanAmount = findViewById(R.id.loanNumber);
+        interestRate = findViewById(R.id.interestRate);
+        loanTerm = findViewById(R.id.loanTerm);
+        loanFees = findViewById(R.id.loanFees);
+
+        double lA = Double.parseDouble(loanAmount.getText().toString());
+        double iR = Double.parseDouble(interestRate.getText().toString());
+        int lT = Integer.parseInt(loanTerm.getText().toString());
+        double lF = Double.parseDouble(loanFees.getText().toString());
+
+
+        Loan curL = new Loan(lA, iR, lT, lF);
+
+        Results res = curL.calculate();
 
         String monthlyPayment = "Monthly Payment: " + res.getMonthlyPayment();
         String interestToPay = "Interest To Pay: " + res.getInterestToPay();

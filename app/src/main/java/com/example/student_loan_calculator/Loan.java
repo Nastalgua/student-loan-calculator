@@ -14,13 +14,18 @@ public class Loan {
     this.mMinimumPayment = minimumPayment;
   }
 
-  public static Results calculate() {
-//    double principal = this.mLoanAmount + this.mMinimumPayment;
-//    double rate = Math.pow((1 + this.mInterestRate), this.mLoanTerm);
-//    double numerator = principal * ;
+  public Results calculate() {
+      double rate = Math.pow((1 + (this.mInterestRate/100)), this.mLoanTerm);
+//    using given formula given in class
+      double principal = mLoanAmount + LOAN_FEES;
+      double numerator = (mLoanAmount + LOAN_FEES) * rate;
+      double denominator = 12 * mLoanTerm;
 
-    // placeholder
-    return new Results(10, 500);
+      //num/den = monthly payment
+      //num - principal = interested to be paid
+
+      return new Results(numerator/denominator, numerator - mLoanAmount);
+
   }
 
   // stupid setters and getters
