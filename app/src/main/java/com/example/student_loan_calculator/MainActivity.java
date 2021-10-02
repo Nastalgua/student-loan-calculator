@@ -42,13 +42,12 @@ public class MainActivity extends AppCompatActivity {
         int lT = Integer.parseInt(loanTerm.getText().toString());
         double lF = Double.parseDouble(loanFees.getText().toString());
 
-
         Loan curL = new Loan(lA, iR, lT, lF);
 
         Results res = curL.calculate();
 
-        String monthlyPayment = "Monthly Payment: " + res.getMonthlyPayment();
-        String interestToPay = "Interest To Pay: " + res.getInterestToPay();
+        String monthlyPayment = "Monthly Payment: $" + res.getMonthlyPayment();
+        String interestToPay = "Interest To Pay: $" + res.getInterestToPay();
 
         builder.setMessage(monthlyPayment + "\n" + interestToPay)
           .setCancelable(true)

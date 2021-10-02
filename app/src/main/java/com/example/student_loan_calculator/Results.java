@@ -5,8 +5,8 @@ public class Results {
   private double mInterestToPay;
 
   public Results(double monthyPayment, double interestToPay) {
-    this.mMonthlyPayment = monthyPayment;
-    this.mInterestToPay = interestToPay;
+    this.mMonthlyPayment = Math.round(monthyPayment * 100.0) / 100.0;
+    this.mInterestToPay = Math.round(interestToPay * 100.0) / 100.0;;
   }
 
   public double getMonthlyPayment() { return mMonthlyPayment; }

@@ -9,23 +9,21 @@ public class Loan {
 
   public Loan(double loanAmount, double interestRate, int loanTerm, double minimumPayment) {
     this.mLoanAmount = loanAmount;
-    this.mInterestRate = interestRate;
-    this.mLoanTerm = loanTerm;
+    this.mInterestRate = interestRate / 100;
+    this.mLoanTerm = loanTerm * 12;
     this.mMinimumPayment = minimumPayment;
   }
 
   public Results calculate() {
-      double rate = Math.pow((1 + (this.mInterestRate/100)), this.mLoanTerm);
-//    using given formula given in class
-      double principal = mLoanAmount + LOAN_FEES;
+      double rate = Math.pow((1 + this.mInterestRate), this.mLoanTerm);
+      // using given formula given in class
       double numerator = (mLoanAmount + LOAN_FEES) * rate;
-      double denominator = 12 * mLoanTerm;
+      double denominator = mLoanTerm;
 
-      //num/den = monthly payment
-      //num - principal = interested to be paid
+      // (num / den) = monthly payment
+      // num - principal = interested to be paid
 
-      return new Results(numerator/denominator, numerator - mLoanAmount);
-
+      return new Results(numerator / denominator, numerator - mLoanAmount);
   }
 
   // stupid setters and getters
